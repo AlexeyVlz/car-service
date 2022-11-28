@@ -16,56 +16,34 @@ public class ErrorHandler {
     @ExceptionHandler
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ApiError handleDataNotFound(final DataNotFound e) {
-        StringBuilder errors = new StringBuilder();
-        for (StackTraceElement error : e.getStackTrace()) {
-            errors.append(error).append("\n");
-        }
-        ApiError apiError = new ApiError(errors.toString(),
-                e.getMessage(),
-                HttpStatus.NOT_FOUND.toString(),
-                LocalDateTime.now().toString());
-        if (e.getCause() != null) {
-            apiError.setReason(e.getCause().toString());
-        }
-        log.info("Возвращена ошибка: \n" + e.getClass() +"\n"+ apiError);
-        return apiError;
+        return newApiError(e, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ApiError handleIllegalArgumentException(final IllegalArgumentException e) {
-        StringBuilder errors = new StringBuilder();
-        for (StackTraceElement error : e.getStackTrace()) {
-            errors.append(error).append("\n");
-        }
-        ApiError apiError = new ApiError(errors.toString(),
-                e.getMessage(),
-                HttpStatus.NOT_FOUND.toString(),
-                LocalDateTime.now().toString());
-        if (e.getCause() != null) {
-            apiError.setReason(e.getCause().toString());
-        }
-        log.info("Возвращена ошибка: \n" + e.getClass() +"\n"+ apiError);
-        return apiError;
+        return newApiError(e, HttpStatus.NOT_FOUND);
     }
-
-
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiError handleThrowable(final Throwable e) {
+        return newApiError(e, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    private ApiError newApiError(Throwable e, HttpStatus httpStatus) {
         StringBuilder errors = new StringBuilder();
         for (StackTraceElement error : e.getStackTrace()) {
             errors.append(error).append("\n");
         }
         ApiError apiError = new ApiError(errors.toString(),
                 e.getMessage(),
-                HttpStatus.INTERNAL_SERVER_ERROR.toString(),
+                httpStatus.toString(),
                 LocalDateTime.now().toString());
         if (e.getCause() != null) {
             apiError.setReason(e.getCause().toString());
         }
-        log.info("Возвращена ошибка: \n" + e.getClass() +"\n"+ apiError);
+        log.info("Возвращена ошибка: \n" + e.getClass() + "\n" + apiError);
         return apiError;
     }
 }
