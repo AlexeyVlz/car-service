@@ -13,20 +13,28 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id", nullable = false)
-    Long id;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "service_id", nullable = false)
-    List<Service> services;
-    @OneToMany(fetch = FetchType.LAZY)
+    private Long id;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "order_services",
+            joinColumns = {@JoinColumn(name = "order_id")},
+            inverseJoinColumns = {@JoinColumn(name = "service_id")}
+    )
+    private List<Service> services;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id", nullable = false)
-    List<Employee> employees;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "auto_part_id", nullable = false)
-    List<AutoPart> autoParts;
-    @OneToOne(fetch = FetchType.LAZY)
+    private Employee employees;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "order_auto_parts",
+            joinColumns = {@JoinColumn(name = "order_id")},
+            inverseJoinColumns = {@JoinColumn(name = "auto_part_id")}
+    )
+    private List<AutoPart> autoParts;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", nullable = false)
-    Client client;
-    @OneToOne(fetch = FetchType.LAZY)
+    private Client client;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "car_id", nullable = false)
-    Car car;
+    private Car car;
 }

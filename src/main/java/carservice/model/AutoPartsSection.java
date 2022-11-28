@@ -12,7 +12,7 @@ public class AutoPartsSection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "auto_parts_section_id")
-    Long id;
+    private Long id;
     @Column(length = 150, unique = true)
-    String title;
+    private String title;
 }

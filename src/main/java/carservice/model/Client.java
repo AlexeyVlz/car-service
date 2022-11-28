@@ -3,7 +3,7 @@ package carservice.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -13,11 +13,20 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "client_id", nullable = false)
-    Long id;
+    private Long id;
     @Column(name = "client_name", length = 64, nullable = false)
-    String name;
+    private String name;
     @Column(name = "client_surname", length = 64, nullable = false)
-    String surname;
+    private String surname;
     @Column(name = "date_of_birth")
-    LocalDateTime dateOfBirth;
+    private LocalDate dateOfBirth;
+
+    public Client(String name, String surname, LocalDate dateOfBirth) {
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Client() {
+    }
 }

@@ -12,16 +12,16 @@ public class AutoPart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "auto_part_id")
-    Long id;
+    private Long id;
     @Column(length = 150, nullable = false)
-    String title;
+    private String title;
     @Column(length = 5000)
-    String description;
+    private String description;
     @Column(name = "purchase_price", nullable = false, precision = 2)
-    Double purchasePrice;
+    private Double purchasePrice;
     @Column(name = "selling_price", nullable = false, precision = 2)
-    Double sellingPrice;
+    private Double sellingPrice;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "auto_parts_section_id", nullable = false)
-    AutoPartsSection section;
+    private AutoPartsSection section;
 }

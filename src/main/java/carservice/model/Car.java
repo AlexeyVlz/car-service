@@ -12,14 +12,23 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "car_id", nullable = false)
-    Long id;
+    private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
-    Client owner;
+    private Client owner;
     @Column(name = "car_number", length = 30, nullable = false)
-    String carNumber;
+    private String carNumber;
     @Column(length = 30, nullable = false)
-    String brand;
+    private String brand;
     @Column(length = 50, nullable = false)
-    String model;
+    private String model;
+
+    public Car(String carNumber, String brand, String model) {
+        this.carNumber = carNumber;
+        this.brand = brand;
+        this.model = model;
+    }
+
+    public Car() {
+    }
 }

@@ -1,4 +1,4 @@
-package carservice.model;
+package carservice.model.branch;
 
 import lombok.Data;
 
@@ -12,9 +12,18 @@ public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "branch_id", nullable = false)
-    Long id;
+    private Long id;
     @Column(nullable = false, length = 64, unique = true)
-    String title;
+    private String title;
     @Column(nullable = false, length = 300)
-    String address;
+    private String address;
+
+    public Branch(String title, String address) {
+        this.title = title;
+        this.address = address;
+    }
+
+    public Branch() {
+
+    }
 }

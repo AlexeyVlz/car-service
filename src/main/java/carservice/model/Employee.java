@@ -1,5 +1,7 @@
 package carservice.model;
 
+import carservice.model.branch.Branch;
+import carservice.model.position.Position;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,15 +14,23 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
-    Long id;
+    private Long id;
     @Column(name = "employee_name", length = 64, nullable = false)
-    String name;
+    private String name;
     @Column(length = 64, nullable = false)
-    String surname;
+    private String surname;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "position_id", nullable = false)
-    Position position;
+    private Position position;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "branch_id", nullable = false)
-    Branch branch;
+    private Branch branch;
+
+    public Employee(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public Employee() {
+    }
 }

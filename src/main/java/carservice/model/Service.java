@@ -10,13 +10,13 @@ import javax.persistence.*;
 public class Service {
 
     @Id
+    @Column(name = "service_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "service_id")
-    Long id;
+    private Long id;
     @Column(length = 150, nullable = false, unique = true)
-    String title;
+    private String title;
     @Column(length = 2000)
-    String description;
+    private String description;
     @Column(nullable = false, precision = 2)
-    Double price;
+    private Double price;
 }

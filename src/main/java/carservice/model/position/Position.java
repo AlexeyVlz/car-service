@@ -1,4 +1,4 @@
-package carservice.model;
+package carservice.model.position;
 
 import lombok.Data;
 
@@ -12,7 +12,15 @@ public class Position {
     @Id
     @Column(name = "position_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     @Column(nullable = false, length = 64, unique = true)
-    String title;
+    private String title;
+
+    public Position(String title) {
+        this.title = title;
+    }
+
+    public Position() {
+
+    }
 }
