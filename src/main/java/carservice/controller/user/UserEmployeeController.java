@@ -23,7 +23,7 @@ public class UserEmployeeController {
 
     @GetMapping("/{id}")
     public EmployeeDtoOut getEmployeeById(@PathVariable @Positive Long id) {
-        log.info("Получен эндпоинт GET /user/employee/{id}; id = " + id);
+        log.info("Получен запрос к эндпоинту GET /user/employee/{id}; id = " + id);
         return userEmployeeService.getEmployeeById(id);
     }
 }

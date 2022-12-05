@@ -15,7 +15,7 @@ public class UserEmployeeServiceImpl implements UserEmployeeService {
     private final EmployeeRepository employeeRepository;
     @Override
     public EmployeeDtoOut getEmployeeById(Long id) {
-        return EmployeeMapping.toEmployeeDto(findEmployeeById(id));
+        return EmployeeMapping.toEmployeeDtoOut(findEmployeeById(id));
     }
 
     @Override

@@ -12,7 +12,7 @@ public class EmployeeMapping {
                 branch);
     }
 
-    public static EmployeeDtoOut toEmployeeDto(Employee employee) {
+    public static EmployeeDtoOut toEmployeeDtoOut(Employee employee) {
         return new EmployeeDtoOut(employee.getName(),
                 employee.getSurname(),
                 employee.getPosition().getTitle(),
