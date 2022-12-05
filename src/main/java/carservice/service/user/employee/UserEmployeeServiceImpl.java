@@ -1,4 +1,4 @@
-package carservice.service.user;
+package carservice.service.user.employee;
 
 import carservice.exeption.DataNotFound;
 import carservice.model.employee.Employee;
@@ -10,13 +10,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserEmployeeService {
+public class UserEmployeeServiceImpl implements UserEmployeeService {
 
     private final EmployeeRepository employeeRepository;
+    @Override
     public EmployeeDto getEmployeeById(Long id) {
         return EmployeeMapping.toEmployeeDto(findEmployeeById(id));
     }
 
+    @Override
     public Employee findEmployeeById(Long id) {
         return employeeRepository.findById(id).orElseThrow(() -> new DataNotFound(
                 String.format("Сотрудник с id = %d не обнаружен", id)));

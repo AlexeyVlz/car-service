@@ -4,7 +4,8 @@ package carservice.serviceTests;
 import carservice.model.position.Position;
 import carservice.model.position.PositionDto;
 import carservice.repository.PositionRepository;
-import carservice.service.admin.AdminPositionService;
+import carservice.service.admin.position.AdminPositionService;
+import carservice.service.admin.position.AdminPositionServiceImplImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,14 +18,14 @@ import static org.mockito.Mockito.when;
 public class AdminPositionTests {
 
     PositionRepository positionRepository;
-    AdminPositionService adminPositionService;
+    AdminPositionService adminPositionServiceImpl;
 
     private final Position position = new Position(1L, "Электрик");
 
     @BeforeEach
     public void beforeEach() {
         positionRepository = mock(PositionRepository.class);
-        adminPositionService = new AdminPositionService(positionRepository);
+        adminPositionServiceImpl = new AdminPositionServiceImplImpl(positionRepository);
     }
 
     @Test
@@ -33,6 +34,6 @@ public class AdminPositionTests {
         when(positionRepository.findById(1L)).thenReturn(Optional.of(position));
         position.setTitle("Механик");
         when(positionRepository.save(position)).thenReturn(position);
-        Assertions.assertEquals(adminPositionService.updatePosition(1L, positionDto), positionDto);
+        Assertions.assertEquals(adminPositionServiceImpl.updatePosition(1L, positionDto), positionDto);
     }
 }

@@ -1,7 +1,7 @@
 package carservice.controller.admin;
 
 import carservice.model.branch.dto.BranchDto;
-import carservice.service.admin.AdminBranchService;
+import carservice.service.admin.branch.AdminBranchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;

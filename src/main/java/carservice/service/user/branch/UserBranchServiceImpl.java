@@ -1,4 +1,4 @@
-package carservice.service.user;
+package carservice.service.user.branch;
 
 import carservice.exeption.DataNotFound;
 import carservice.model.branch.Branch;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserBranchService {
+public class UserBranchServiceImpl implements UserBranchService{
 
     protected final BranchRepository branchRepository;
 

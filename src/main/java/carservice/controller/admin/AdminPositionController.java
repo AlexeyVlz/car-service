@@ -1,7 +1,7 @@
 package carservice.controller.admin;
 
 import carservice.model.position.PositionDto;
-import carservice.service.admin.AdminPositionService;
+import carservice.service.admin.position.AdminPositionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;

@@ -3,7 +3,7 @@ package carservice.serviceTests;
 import carservice.model.branch.Branch;
 import carservice.model.branch.dto.BranchDto;
 import carservice.repository.BranchRepository;
-import carservice.service.admin.AdminBranchService;
+import carservice.service.admin.branch.AdminBranchServiceImplImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,12 +16,12 @@ import static org.mockito.Mockito.when;
 public class AdminBranchTests {
 
     BranchRepository branchRepository;
-    AdminBranchService adminBranchService;
+    AdminBranchServiceImplImpl adminBranchServiceImpl;
 
     @BeforeEach
     public void beforeEach() {
         branchRepository = mock(BranchRepository.class);
-        adminBranchService = new AdminBranchService(branchRepository);
+        adminBranchServiceImpl = new AdminBranchServiceImplImpl(branchRepository);
     }
 
     @Test
@@ -31,6 +31,6 @@ public class AdminBranchTests {
         BranchDto branchDto = new BranchDto( "Обновленный филиал 1", "Проспект гагарина");
         when(branchRepository.findById(1L)).thenReturn(Optional.of(branchFromData));
         when(branchRepository.save(updatedBranch)).thenReturn(updatedBranch);
-        Assertions.assertEquals(adminBranchService.updateBranch(1L, branchDto), branchDto);
+        Assertions.assertEquals(adminBranchServiceImpl.updateBranch(1L, branchDto), branchDto);
     }
 }

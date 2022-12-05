@@ -1,7 +1,7 @@
 package carservice.controller.user;
 
 import carservice.model.employee.EmployeeDto;
-import carservice.service.user.UserEmployeeService;
+import carservice.service.user.employee.UserEmployeeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;

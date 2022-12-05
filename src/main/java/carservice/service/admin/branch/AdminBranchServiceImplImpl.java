@@ -1,19 +1,19 @@
-package carservice.service.admin;
+package carservice.service.admin.branch;
 
 import carservice.exeption.DataNotFound;
 import carservice.model.branch.Branch;
 import carservice.model.branch.BranchMapping;
 import carservice.model.branch.dto.BranchDto;
 import carservice.repository.BranchRepository;
-import carservice.service.user.UserBranchService;
+import carservice.service.user.branch.UserBranchServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdminBranchService extends UserBranchService {
+public class AdminBranchServiceImplImpl extends UserBranchServiceImpl implements AdminBranchService{
 
     @Autowired
-    public AdminBranchService(BranchRepository branchRepository) {
+    public AdminBranchServiceImplImpl(BranchRepository branchRepository) {
         super(branchRepository);
     }
 
