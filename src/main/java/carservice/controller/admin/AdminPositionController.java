@@ -1,8 +1,7 @@
-package carservice.controller;
+package carservice.controller.admin;
 
 import carservice.model.position.PositionDto;
-import carservice.model.position.PositionMapping;
-import carservice.service.PositionService;
+import carservice.service.admin.AdminPositionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -12,24 +11,18 @@ import javax.validation.Valid;
 import javax.validation.constraints.Positive;
 
 @RestController
-@RequestMapping(path = "/position")
+@RequestMapping(path = "admin/position")
 @RequiredArgsConstructor
 @Slf4j
 @Validated
-public class PositionController {
+public class AdminPositionController {
 
-    private final PositionService positionService;
+    private final AdminPositionService positionService;
 
     @PostMapping
     public PositionDto createPosition(@RequestBody @Valid PositionDto positionDto) {
         log.info("Получен запрос к эндпоинту POST /position; positionDto = " + positionDto);
         return positionService.createPosition(positionDto);
-    }
-
-    @GetMapping ("/{id}")
-    public PositionDto getPositionById(@PathVariable @Positive Long id) {
-        log.info(String.format("Получен запрос к эндпоинту GET /position/%d",id));
-        return PositionMapping.toPositionDto(positionService.getPositionById(id));
     }
 
     @PutMapping ("/{id}")

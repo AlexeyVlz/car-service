@@ -1,30 +1,28 @@
-package carservice.service;
+package carservice.service.admin;
 
-import carservice.exeption.DataNotFound;
 import carservice.model.position.Position;
 import carservice.model.position.PositionDto;
 import carservice.model.position.PositionMapping;
 import carservice.repository.PositionRepository;
-import lombok.RequiredArgsConstructor;
+import carservice.service.user.UserPositionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
-public class PositionService {
+public class AdminPositionService extends UserPositionService {
 
-    private final PositionRepository positionRepository;
+    @Autowired
+    public AdminPositionService(PositionRepository positionRepository) {
+        super(positionRepository);
+    }
+
     public PositionDto createPosition(PositionDto positionDto) {
        Position position = positionRepository.save(PositionMapping.toPosition(positionDto));
        return PositionMapping.toPositionDto(position);
     }
 
-    public Position getPositionById(Long id) {
-        return positionRepository.findById(id).orElseThrow(() -> new DataNotFound(String.format(
-                "Должность с id = %d в базе не обнаружена", id)));
-    }
-
     public PositionDto updatePosition(Long id, PositionDto positionDto) {
-        Position position = getPositionById(id);
+        Position position = findPositionById(id);
         position.setTitle(positionDto.getTitle());
         positionRepository.save(position);
         return PositionMapping.toPositionDto(position);

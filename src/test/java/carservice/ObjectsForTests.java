@@ -1,6 +1,5 @@
-package carservice.jpaTests;
+package carservice;
 
-import carservice.UtilClass;
 import carservice.model.*;
 import carservice.model.branch.Branch;
 import carservice.model.position.Position;

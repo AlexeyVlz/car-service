@@ -1,4 +1,4 @@
-package carservice.model.branch;
+package carservice.model.branch.dto;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class BranchDto {
+public class BranchDto extends AbstractBranchDto{
 
     @NotNull @NotBlank
     private String title;

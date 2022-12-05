@@ -20,6 +20,11 @@ public class Position {
         this.title = title;
     }
 
+    public Position(Long id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
     public Position() {
 
     }

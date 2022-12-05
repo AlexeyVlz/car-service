@@ -1,8 +1,7 @@
-package carservice.controller;
+package carservice.controller.admin;
 
-import carservice.model.branch.BranchDto;
-import carservice.model.branch.BranchMapping;
-import carservice.service.BranchService;
+import carservice.model.branch.dto.BranchDto;
+import carservice.service.admin.AdminBranchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -15,21 +14,15 @@ import javax.validation.constraints.Positive;
 @Slf4j
 @Validated
 @RequiredArgsConstructor
-@RequestMapping(path = "/branch")
-public class BranchController {
+@RequestMapping(path = "/admin/branch")
+public class AdminBranchController {
 
-    private final BranchService branchService;
+    private final AdminBranchService branchService;
 
     @PostMapping
     public BranchDto createBranch(@RequestBody @Valid BranchDto branchDto) {
         log.info("Получен запрос к эндпоинту POST /branch, branchDto = " + branchDto);
         return branchService.createBranch(branchDto);
-    }
-
-    @GetMapping("/{id}")
-    public BranchDto getBranchById(@PathVariable @Positive Long id) {
-        log.info("Получен запрос к эндпоинту GET /branch/" + id);
-        return BranchMapping.toBranchDto(branchService.getBranchById(id));
     }
 
     @PutMapping("/{id}")

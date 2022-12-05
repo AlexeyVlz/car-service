@@ -1,5 +1,7 @@
 package carservice.model.branch;
 
+import carservice.model.branch.dto.BranchDto;
+
 public class BranchMapping {
 
     public static Branch toBranch(BranchDto branchDto) {

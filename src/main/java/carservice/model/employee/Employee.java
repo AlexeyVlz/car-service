@@ -1,4 +1,4 @@
-package carservice.model;
+package carservice.model.employee;
 
 import carservice.model.branch.Branch;
 import carservice.model.position.Position;
@@ -26,9 +26,11 @@ public class Employee {
     @JoinColumn(name = "branch_id", nullable = false)
     private Branch branch;
 
-    public Employee(String name, String surname) {
+    public Employee(String name, String surname, Position position, Branch branch) {
         this.name = name;
         this.surname = surname;
+        this.position = position;
+        this.branch = branch;
     }
 
     public Employee() {
