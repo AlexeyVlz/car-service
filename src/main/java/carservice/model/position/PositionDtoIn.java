@@ -6,12 +6,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class PositionDto {
+public class PositionDtoIn {
 
     @NotNull @NotBlank
     private String title;
 
-    public PositionDto(String title) {
+    public PositionDtoIn(String title) {
         this.title = title;
     }
 }

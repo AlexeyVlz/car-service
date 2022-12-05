@@ -1,6 +1,7 @@
 package carservice.controller.admin;
 
-import carservice.model.position.PositionDto;
+import carservice.model.position.PositionDtoIn;
+import carservice.model.position.PositionDtoOut;
 import carservice.service.admin.position.AdminPositionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,16 +21,16 @@ public class AdminPositionController {
     private final AdminPositionService positionService;
 
     @PostMapping
-    public PositionDto createPosition(@RequestBody @Valid PositionDto positionDto) {
-        log.info("Получен запрос к эндпоинту POST /position; positionDto = " + positionDto);
-        return positionService.createPosition(positionDto);
+    public PositionDtoOut createPosition(@RequestBody @Valid PositionDtoIn positionDtoIn) {
+        log.info("Получен запрос к эндпоинту POST /position; positionDto = " + positionDtoIn);
+        return positionService.createPosition(positionDtoIn);
     }
 
     @PutMapping ("/{id}")
-    public PositionDto updatePosition(@RequestBody @Valid PositionDto positionDto, @PathVariable @Positive Long id) {
+    public PositionDtoOut updatePosition(@RequestBody @Valid PositionDtoIn positionDtoIn, @PathVariable @Positive Long id) {
         log.info(String.format("Получен запрос к эндпоинту PUT /position/%d, positionDto = %s",
-                id, positionDto.toString()));
-        return positionService.updatePosition(id, positionDto);
+                id, positionDtoIn.toString()));
+        return positionService.updatePosition(id, positionDtoIn);
     }
 
     @DeleteMapping ("/{id}")

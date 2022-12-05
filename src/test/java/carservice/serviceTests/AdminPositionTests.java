@@ -2,7 +2,8 @@ package carservice.serviceTests;
 
 
 import carservice.model.position.Position;
-import carservice.model.position.PositionDto;
+import carservice.model.position.PositionDtoIn;
+import carservice.model.position.PositionDtoOut;
 import carservice.repository.PositionRepository;
 import carservice.service.admin.position.AdminPositionService;
 import carservice.service.admin.position.AdminPositionServiceImplImpl;
@@ -30,10 +31,11 @@ public class AdminPositionTests {
 
     @Test
     public void updatePosition() {
-        PositionDto positionDto = new PositionDto("Механик");
+        PositionDtoIn positionDtoIn = new PositionDtoIn("Механик");
+        PositionDtoOut positionDtoOut = new PositionDtoOut("Механик");
         when(positionRepository.findById(1L)).thenReturn(Optional.of(position));
         position.setTitle("Механик");
         when(positionRepository.save(position)).thenReturn(position);
-        Assertions.assertEquals(adminPositionServiceImpl.updatePosition(1L, positionDto), positionDto);
+        Assertions.assertEquals(adminPositionServiceImpl.updatePosition(1L, positionDtoIn), positionDtoOut);
     }
 }

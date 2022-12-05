@@ -1,6 +1,6 @@
 package carservice.controller.user;
 
-import carservice.model.branch.dto.BranchDto;
+import carservice.model.branch.BranchDtoOut;
 import carservice.service.user.branch.UserBranchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +19,7 @@ public class UserBranchController {
     private final UserBranchService branchService;
 
     @GetMapping("/{id}")
-    public BranchDto getBranchById(@PathVariable @Positive Long id) {
+    public BranchDtoOut getBranchById(@PathVariable @Positive Long id) {
         log.info("Получен запрос к эндпоинту GET /branch/" + id);
         return branchService.getBranchById(id);
     }

@@ -1,6 +1,7 @@
 package carservice.controller.admin;
 
-import carservice.model.branch.dto.BranchDto;
+import carservice.model.branch.BranchDtoIn;
+import carservice.model.branch.BranchDtoOut;
 import carservice.service.admin.branch.AdminBranchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,16 +21,16 @@ public class AdminBranchController {
     private final AdminBranchService branchService;
 
     @PostMapping
-    public BranchDto createBranch(@RequestBody @Valid BranchDto branchDto) {
-        log.info("Получен запрос к эндпоинту POST /branch, branchDto = " + branchDto);
-        return branchService.createBranch(branchDto);
+    public BranchDtoOut createBranch(@RequestBody @Valid BranchDtoIn branchDtoIn) {
+        log.info("Получен запрос к эндпоинту POST /branch, branchDto = " + branchDtoIn);
+        return branchService.createBranch(branchDtoIn);
     }
 
     @PutMapping("/{id}")
-    public BranchDto updateBranch(@PathVariable @Positive Long id,
-                                  @RequestBody @Valid BranchDto branchDto) {
-        log.info(String.format("Получен запрос к эндпоинту PUT /branch/%d, branchDto = %s", id, branchDto.toString()));
-        return branchService.updateBranch(id, branchDto);
+    public BranchDtoOut updateBranch(@PathVariable @Positive Long id,
+                                    @RequestBody @Valid BranchDtoIn branchDtoIn) {
+        log.info(String.format("Получен запрос к эндпоинту PUT /branch/%d, branchDto = %s", id, branchDtoIn.toString()));
+        return branchService.updateBranch(id, branchDtoIn);
     }
 
     @DeleteMapping("/{id}")

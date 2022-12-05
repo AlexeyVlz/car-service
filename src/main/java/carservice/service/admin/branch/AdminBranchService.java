@@ -1,12 +1,13 @@
 package carservice.service.admin.branch;
 
-import carservice.model.branch.dto.BranchDto;
+import carservice.model.branch.BranchDtoIn;
+import carservice.model.branch.BranchDtoOut;
 
 public interface AdminBranchService {
 
-    BranchDto createBranch(BranchDto branchDto);
+    BranchDtoOut createBranch(BranchDtoIn branchDtoIn);
 
-    BranchDto updateBranch(Long id, BranchDto branchDto);
+    BranchDtoOut updateBranch(Long id, BranchDtoIn branchDtoIn);
 
     void deleteBranchById(Long id);
 

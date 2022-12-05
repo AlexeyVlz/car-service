@@ -2,7 +2,7 @@ package carservice.service.user.employee;
 
 import carservice.exeption.DataNotFound;
 import carservice.model.employee.Employee;
-import carservice.model.employee.EmployeeDto;
+import carservice.model.employee.EmployeeDtoOut;
 import carservice.model.employee.EmployeeMapping;
 import carservice.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class UserEmployeeServiceImpl implements UserEmployeeService {
 
     private final EmployeeRepository employeeRepository;
     @Override
-    public EmployeeDto getEmployeeById(Long id) {
+    public EmployeeDtoOut getEmployeeById(Long id) {
         return EmployeeMapping.toEmployeeDto(findEmployeeById(id));
     }
 

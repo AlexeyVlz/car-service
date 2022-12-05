@@ -1,6 +1,6 @@
 package carservice.controller.user;
 
-import carservice.model.employee.EmployeeDto;
+import carservice.model.employee.EmployeeDtoOut;
 import carservice.service.user.employee.UserEmployeeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +22,7 @@ public class UserEmployeeController {
     private final UserEmployeeService userEmployeeService;
 
     @GetMapping("/{id}")
-    public EmployeeDto getEmployeeById(@PathVariable @Positive Long id) {
+    public EmployeeDtoOut getEmployeeById(@PathVariable @Positive Long id) {
         log.info("Получен эндпоинт GET /user/employee/{id}; id = " + id);
         return userEmployeeService.getEmployeeById(id);
     }

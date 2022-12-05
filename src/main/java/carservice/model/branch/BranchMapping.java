@@ -1,21 +1,19 @@
 package carservice.model.branch;
 
-import carservice.model.branch.dto.BranchDto;
-
 public class BranchMapping {
 
-    public static Branch toBranch(BranchDto branchDto) {
+    public static Branch toBranch(BranchDtoIn branchDtoIn) {
         Branch branch = new Branch();
-        if(branchDto.getAddress() != null) {
-            branch.setAddress(branchDto.getAddress());
+        if(branchDtoIn.getAddress() != null) {
+            branch.setAddress(branchDtoIn.getAddress());
         }
-        if(branchDto.getTitle() != null) {
-            branch.setTitle(branchDto.getTitle());
+        if(branchDtoIn.getTitle() != null) {
+            branch.setTitle(branchDtoIn.getTitle());
         }
         return branch;
     }
 
-    public static BranchDto toBranchDto(Branch branch){
-        return new BranchDto(branch.getTitle(), branch.getAddress());
+    public static BranchDtoOut toBranchDtoOut(Branch branch){
+        return new BranchDtoOut(branch.getTitle(), branch.getAddress());
     }
 }

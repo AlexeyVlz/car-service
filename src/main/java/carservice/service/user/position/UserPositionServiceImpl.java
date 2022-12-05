@@ -2,7 +2,7 @@ package carservice.service.user.position;
 
 import carservice.exeption.DataNotFound;
 import carservice.model.position.Position;
-import carservice.model.position.PositionDto;
+import carservice.model.position.PositionDtoOut;
 import carservice.model.position.PositionMapping;
 import carservice.repository.PositionRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +15,8 @@ public class UserPositionServiceImpl implements UserPositionService {
     protected final PositionRepository positionRepository;
 
     @Override
-    public PositionDto getPositionById(Long id) {
-        return PositionMapping.toPositionDto(findPositionById(id));
+    public PositionDtoOut getPositionById(Long id) {
+        return PositionMapping.toPositionDtoOut(findPositionById(id));
     }
 
     @Override

@@ -1,6 +1,6 @@
 package carservice.controller.admin;
 
-import carservice.model.employee.EmployeeDto;
+import carservice.model.employee.EmployeeDtoIn;
 import carservice.service.admin.AdminEmployeeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,9 +19,9 @@ public class AdminEmployeeController {
     private final AdminEmployeeService adminEmployeeService;
 
     @PostMapping
-    public EmployeeDto addNewEmployee(@RequestParam @Positive Long branchId,
-                                      @RequestParam @Positive Long positionId,
-                                      @RequestBody EmployeeDto employeeDto) {
+    public EmployeeDtoIn addNewEmployee(@RequestParam @Positive Long branchId,
+                                        @RequestParam @Positive Long positionId,
+                                        @RequestBody EmployeeDtoIn employeeDtoIn) {
         return null;
     }
 }

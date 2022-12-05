@@ -2,8 +2,9 @@ package carservice.service.admin.branch;
 
 import carservice.exeption.DataNotFound;
 import carservice.model.branch.Branch;
+import carservice.model.branch.BranchDtoOut;
 import carservice.model.branch.BranchMapping;
-import carservice.model.branch.dto.BranchDto;
+import carservice.model.branch.BranchDtoIn;
 import carservice.repository.BranchRepository;
 import carservice.service.user.branch.UserBranchServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +18,16 @@ public class AdminBranchServiceImplImpl extends UserBranchServiceImpl implements
         super(branchRepository);
     }
 
-    public BranchDto createBranch(BranchDto branchDto) {
-        Branch branch = branchRepository.save(BranchMapping.toBranch(branchDto));
-        return BranchMapping.toBranchDto(branch);
+    public BranchDtoOut createBranch(BranchDtoIn branchDtoIn) {
+        Branch branch = branchRepository.save(BranchMapping.toBranch(branchDtoIn));
+        return BranchMapping.toBranchDtoOut(branch);
     }
 
-    public BranchDto updateBranch(Long id, BranchDto branchDto) {
+    public BranchDtoOut updateBranch(Long id, BranchDtoIn branchDtoIn) {
         Branch branch = findBranchById(id);
-        branch.setTitle(branchDto.getTitle());
-        branch.setAddress(branchDto.getAddress());
-        return BranchMapping.toBranchDto(branchRepository.save(branch));
+        branch.setTitle(branchDtoIn.getTitle());
+        branch.setAddress(branchDtoIn.getAddress());
+        return BranchMapping.toBranchDtoOut(branchRepository.save(branch));
     }
 
     public void deleteBranchById(Long id) {

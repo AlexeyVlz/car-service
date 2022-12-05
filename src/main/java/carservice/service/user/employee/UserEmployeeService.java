@@ -1,10 +1,10 @@
 package carservice.service.user.employee;
 
 import carservice.model.employee.Employee;
-import carservice.model.employee.EmployeeDto;
+import carservice.model.employee.EmployeeDtoOut;
 
 public interface UserEmployeeService {
-    EmployeeDto getEmployeeById(Long id);
+    EmployeeDtoOut getEmployeeById(Long id);
 
     Employee findEmployeeById(Long id);
 }

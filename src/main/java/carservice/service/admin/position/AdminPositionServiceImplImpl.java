@@ -1,7 +1,8 @@
 package carservice.service.admin.position;
 
 import carservice.model.position.Position;
-import carservice.model.position.PositionDto;
+import carservice.model.position.PositionDtoIn;
+import carservice.model.position.PositionDtoOut;
 import carservice.model.position.PositionMapping;
 import carservice.repository.PositionRepository;
 import carservice.service.user.position.UserPositionServiceImpl;
@@ -17,17 +18,17 @@ public class AdminPositionServiceImplImpl extends UserPositionServiceImpl implem
     }
 
     @Override
-    public PositionDto createPosition(PositionDto positionDto) {
-       Position position = positionRepository.save(PositionMapping.toPosition(positionDto));
-       return PositionMapping.toPositionDto(position);
+    public PositionDtoOut createPosition(PositionDtoIn positionDtoIn) {
+       Position position = positionRepository.save(PositionMapping.toPosition(positionDtoIn));
+       return PositionMapping.toPositionDtoOut(position);
     }
 
     @Override
-    public PositionDto updatePosition(Long id, PositionDto positionDto) {
+    public PositionDtoOut updatePosition(Long id, PositionDtoIn positionDtoIn) {
         Position position = findPositionById(id);
-        position.setTitle(positionDto.getTitle());
+        position.setTitle(positionDtoIn.getTitle());
         positionRepository.save(position);
-        return PositionMapping.toPositionDto(position);
+        return PositionMapping.toPositionDtoOut(position);
     }
 
     @Override

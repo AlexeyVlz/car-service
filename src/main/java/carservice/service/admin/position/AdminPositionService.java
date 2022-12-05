@@ -1,11 +1,12 @@
 package carservice.service.admin.position;
 
-import carservice.model.position.PositionDto;
+import carservice.model.position.PositionDtoIn;
+import carservice.model.position.PositionDtoOut;
 
 public interface AdminPositionService {
-    PositionDto createPosition(PositionDto positionDto);
+    PositionDtoOut createPosition(PositionDtoIn positionDtoIn);
 
-    PositionDto updatePosition(Long id, PositionDto positionDto);
+    PositionDtoOut updatePosition(Long id, PositionDtoIn positionDtoIn);
 
     void deletePosition(Long id);
 }

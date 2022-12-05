@@ -2,11 +2,11 @@ package carservice.model.position;
 
 public class PositionMapping {
 
-    public static Position toPosition(PositionDto positionDto) {
-        return new Position(positionDto.getTitle());
+    public static Position toPosition(PositionDtoIn positionDtoIn) {
+        return new Position(positionDtoIn.getTitle());
     }
 
-    public static PositionDto toPositionDto(Position position) {
-        return new PositionDto(position.getTitle());
+    public static PositionDtoOut toPositionDtoOut(Position position) {
+        return new PositionDtoOut(position.getTitle());
     }
 }

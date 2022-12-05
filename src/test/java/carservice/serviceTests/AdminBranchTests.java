@@ -1,7 +1,8 @@
 package carservice.serviceTests;
 
 import carservice.model.branch.Branch;
-import carservice.model.branch.dto.BranchDto;
+import carservice.model.branch.BranchDtoIn;
+import carservice.model.branch.BranchDtoOut;
 import carservice.repository.BranchRepository;
 import carservice.service.admin.branch.AdminBranchServiceImplImpl;
 import org.junit.jupiter.api.Assertions;
@@ -28,9 +29,10 @@ public class AdminBranchTests {
     public void updateBranch() {
         Branch branchFromData = new Branch(1L,"Филиал 1", "Брайнт Бич");
         Branch updatedBranch = new Branch(1L, "Обновленный филиал 1", "Проспект гагарина");
-        BranchDto branchDto = new BranchDto( "Обновленный филиал 1", "Проспект гагарина");
+        BranchDtoIn branchDtoIn = new BranchDtoIn( "Обновленный филиал 1", "Проспект гагарина");
+        BranchDtoOut branchDtoOut = new BranchDtoOut("Обновленный филиал 1", "Проспект гагарина");
         when(branchRepository.findById(1L)).thenReturn(Optional.of(branchFromData));
         when(branchRepository.save(updatedBranch)).thenReturn(updatedBranch);
-        Assertions.assertEquals(adminBranchServiceImpl.updateBranch(1L, branchDto), branchDto);
+        Assertions.assertEquals(adminBranchServiceImpl.updateBranch(1L, branchDtoIn), branchDtoOut);
     }
 }
