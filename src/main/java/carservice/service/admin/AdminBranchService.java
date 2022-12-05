@@ -35,8 +35,5 @@ public class AdminBranchService extends UserBranchService {
         branchRepository.deleteById(id);
     }
 
-    public Branch findBranchById(Long id) {
-        return branchRepository.findById(id).orElseThrow(() -> new DataNotFound(String.format(
-                "Филиал с id = %d в базе данных не обаружен", id)));
-    }
+
 }

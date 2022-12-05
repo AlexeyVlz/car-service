@@ -11,11 +11,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class PositionTests {
+public class AdminPositionTests {
 
     PositionRepository positionRepository;
     AdminPositionService adminPositionService;
@@ -33,9 +32,7 @@ public class PositionTests {
         PositionDto positionDto = new PositionDto("Механик");
         when(positionRepository.findById(1L)).thenReturn(Optional.of(position));
         position.setTitle("Механик");
-        when(positionRepository.save(any())).thenReturn(position);
+        when(positionRepository.save(position)).thenReturn(position);
         Assertions.assertEquals(adminPositionService.updatePosition(1L, positionDto), positionDto);
     }
-
-
 }

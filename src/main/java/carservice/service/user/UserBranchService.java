@@ -15,9 +15,11 @@ public class UserBranchService {
     protected final BranchRepository branchRepository;
 
     public BranchDto getBranchById(Long id) {
-        Branch branch = branchRepository.findById(id).orElseThrow(() -> new DataNotFound(String.format(
-                "Филиал с id = %d в базе данных не обаружен", id)));
-        return BranchMapping.toBranchDto(branch);
+        return BranchMapping.toBranchDto(findBranchById(id));
     }
 
+    public Branch findBranchById(Long id) {
+        return branchRepository.findById(id).orElseThrow(() -> new DataNotFound(String.format(
+                "Филиал с id = %d в базе данных не обаружен", id)));
+    }
 }
