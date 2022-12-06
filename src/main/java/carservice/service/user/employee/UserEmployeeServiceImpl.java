@@ -6,10 +6,12 @@ import carservice.model.employee.EmployeeDtoOut;
 import carservice.model.employee.EmployeeMapping;
 import carservice.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Qualifier("user")
 public class UserEmployeeServiceImpl implements UserEmployeeService {
 
     protected final EmployeeRepository employeeRepository;

@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class AdminEmployeeServiceImpl extends UserEmployeeServiceImpl implements AdminEmployeeService {
 
@@ -50,5 +53,11 @@ public class AdminEmployeeServiceImpl extends UserEmployeeServiceImpl implements
     @Override
     public void deleteEmployeeById(Long id) {
         if (employeeRepository.existsById(id)) employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<EmployeeDtoOut> getEmployeesByPosition(Long id) {
+        List<Employee> employeeList = employeeRepository.findByPositionId(id);
+        return employeeList.stream().map(EmployeeMapping::toEmployeeDtoOut).collect(Collectors.toList());
     }
 }
