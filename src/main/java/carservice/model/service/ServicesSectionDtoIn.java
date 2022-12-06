@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 
 
 @Data
-public class ServiceDtoIn {
+public class ServicesSectionDtoIn {
 
     @NotNull @NotBlank
     private String title;

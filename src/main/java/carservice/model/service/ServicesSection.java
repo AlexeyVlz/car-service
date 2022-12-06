@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "services")
-public class Service {
+public class ServicesSection {
 
     @Id
     @Column(name = "service_id", nullable = false)
@@ -20,12 +20,12 @@ public class Service {
     @Column(nullable = false, precision = 2)
     private Double price;
 
-    public Service(String title, String description, Double price) {
+    public ServicesSection(String title, String description, Double price) {
         this.title = title;
         this.description = description;
         this.price = price;
     }
 
-    public Service() {
+    public ServicesSection() {
     }
 }

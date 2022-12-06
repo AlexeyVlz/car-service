@@ -1,7 +1,7 @@
 package carservice.model;
 
 import carservice.model.employee.Employee;
-import carservice.model.service.Service;
+import carservice.model.service.ServicesSection;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,7 +22,7 @@ public class Order {
             joinColumns = {@JoinColumn(name = "order_id")},
             inverseJoinColumns = {@JoinColumn(name = "service_id")}
     )
-    private List<Service> services;
+    private List<ServicesSection> servicesSections;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employees;

@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ServiceDtoOut {
+public class ServicesSectionDtoOut {
 
     private String title;
     private String description;
