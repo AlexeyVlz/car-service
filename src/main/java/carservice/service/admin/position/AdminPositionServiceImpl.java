@@ -10,11 +10,13 @@ import carservice.repository.PositionRepository;
 import carservice.service.admin.employee.AdminEmployeeService;
 import carservice.service.user.position.UserPositionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Qualifier("AdminPositionServiceImpl")
 public class AdminPositionServiceImpl extends UserPositionServiceImpl implements AdminPositionService {
 
     private final AdminEmployeeService adminEmployeeService;

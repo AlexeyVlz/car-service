@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Qualifier("AdminEmployeeServiceImpl")
 public class AdminEmployeeServiceImpl extends UserEmployeeServiceImpl implements AdminEmployeeService {
 
     private final UserPositionService userPositionService;
@@ -25,8 +26,8 @@ public class AdminEmployeeServiceImpl extends UserEmployeeServiceImpl implements
 
     @Autowired
     public AdminEmployeeServiceImpl(EmployeeRepository employeeRepository,
-                                    @Qualifier("user") UserPositionService userPositionService,
-                                    @Qualifier("user") UserBranchService userBranchService) {
+                                    @Qualifier("UserPositionServiceImpl") UserPositionService userPositionService,
+                                    @Qualifier("UserBranchServiceImpl") UserBranchService userBranchService) {
         super(employeeRepository);
         this.userPositionService = userPositionService;
         this.userBranchService = userBranchService;

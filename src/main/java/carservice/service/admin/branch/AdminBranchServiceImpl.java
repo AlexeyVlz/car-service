@@ -8,9 +8,11 @@ import carservice.model.branch.BranchDtoIn;
 import carservice.repository.BranchRepository;
 import carservice.service.user.branch.UserBranchServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
+@Qualifier("AdminBranchServiceImpl")
 public class AdminBranchServiceImpl extends UserBranchServiceImpl implements AdminBranchService{
 
     @Autowired

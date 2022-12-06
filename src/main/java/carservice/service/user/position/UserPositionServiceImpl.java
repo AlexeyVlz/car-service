@@ -5,16 +5,19 @@ import carservice.model.position.Position;
 import carservice.model.position.PositionDtoOut;
 import carservice.model.position.PositionMapping;
 import carservice.repository.PositionRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
-@Qualifier("user")
+@Qualifier("UserPositionServiceImpl")
 public class UserPositionServiceImpl implements UserPositionService {
 
     protected final PositionRepository positionRepository;
+    @Autowired
+    public UserPositionServiceImpl(PositionRepository positionRepository) {
+        this.positionRepository = positionRepository;
+    }
 
     @Override
     public PositionDtoOut getPositionById(Long id) {

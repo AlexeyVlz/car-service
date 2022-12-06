@@ -3,8 +3,8 @@ package carservice.controller.admin;
 import carservice.model.branch.BranchDtoIn;
 import carservice.model.branch.BranchDtoOut;
 import carservice.service.admin.branch.AdminBranchService;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,11 +14,15 @@ import javax.validation.constraints.Positive;
 @RestController
 @Slf4j
 @Validated
-@RequiredArgsConstructor
 @RequestMapping(path = "/admin/branch")
 public class AdminBranchController {
 
     private final AdminBranchService branchService;
+
+    @Autowired
+    public AdminBranchController(AdminBranchService branchService) {
+        this.branchService = branchService;
+    }
 
     @PostMapping
     public BranchDtoOut createBranch(@RequestBody @Valid BranchDtoIn branchDtoIn) {

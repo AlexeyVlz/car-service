@@ -5,16 +5,20 @@ import carservice.model.branch.Branch;
 import carservice.model.branch.BranchDtoOut;
 import carservice.model.branch.BranchMapping;
 import carservice.repository.BranchRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
-@Qualifier("user")
+@Qualifier("UserBranchServiceImpl")
 public class UserBranchServiceImpl implements UserBranchService{
 
     protected final BranchRepository branchRepository;
+
+    @Autowired
+    public UserBranchServiceImpl(BranchRepository branchRepository) {
+        this.branchRepository = branchRepository;
+    }
 
     @Override
     public BranchDtoOut getBranchById(Long id) {
