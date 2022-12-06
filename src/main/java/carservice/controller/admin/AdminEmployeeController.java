@@ -2,7 +2,7 @@ package carservice.controller.admin;
 
 import carservice.model.employee.EmployeeDtoIn;
 import carservice.model.employee.EmployeeDtoOut;
-import carservice.service.admin.AdminEmployeeService;
+import carservice.service.admin.employee.AdminEmployeeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -28,12 +28,13 @@ public class AdminEmployeeController {
         return adminEmployeeService.addNewEmployee(branchId, positionId, employeeDtoIn);
     }
 
-    @PutMapping
-    public EmployeeDtoOut updateEmployee(@RequestParam(required = false) @Positive Long branchId,
+    @PutMapping("/{employeeId}")
+    public EmployeeDtoOut updateEmployee(@PathVariable @Positive Long employeeId,
+                                         @RequestParam(required = false) @Positive Long branchId,
                                           @RequestParam(required = false) @Positive Long positionId,
                                           @RequestBody EmployeeDtoIn employeeDtoIn){
         log.info("Получен запрос к эндпоинту PUT /admin/employee");
-        return adminEmployeeService.updateEmployee(branchId, positionId, employeeDtoIn);
+        return adminEmployeeService.updateEmployee(branchId, positionId, employeeDtoIn, employeeId);
     }
 
     @DeleteMapping("/{id}")

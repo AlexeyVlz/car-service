@@ -4,7 +4,7 @@ import carservice.model.branch.Branch;
 import carservice.model.branch.BranchDtoIn;
 import carservice.model.branch.BranchDtoOut;
 import carservice.repository.BranchRepository;
-import carservice.service.admin.branch.AdminBranchServiceImplImpl;
+import carservice.service.admin.branch.AdminBranchServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,12 +17,12 @@ import static org.mockito.Mockito.when;
 public class AdminBranchTests {
 
     BranchRepository branchRepository;
-    AdminBranchServiceImplImpl adminBranchServiceImpl;
+    AdminBranchServiceImpl adminBranchServiceImpl;
 
     @BeforeEach
     public void beforeEach() {
         branchRepository = mock(BranchRepository.class);
-        adminBranchServiceImpl = new AdminBranchServiceImplImpl(branchRepository);
+        adminBranchServiceImpl = new AdminBranchServiceImpl(branchRepository);
     }
 
     @Test

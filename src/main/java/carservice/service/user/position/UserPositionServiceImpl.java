@@ -6,10 +6,12 @@ import carservice.model.position.PositionDtoOut;
 import carservice.model.position.PositionMapping;
 import carservice.repository.PositionRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Qualifier("user")
 public class UserPositionServiceImpl implements UserPositionService {
 
     protected final PositionRepository positionRepository;

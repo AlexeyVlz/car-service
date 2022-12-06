@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserEmployeeServiceImpl implements UserEmployeeService {
 
-    private final EmployeeRepository employeeRepository;
+    protected final EmployeeRepository employeeRepository;
     @Override
     public EmployeeDtoOut getEmployeeById(Long id) {
         return EmployeeMapping.toEmployeeDtoOut(findEmployeeById(id));

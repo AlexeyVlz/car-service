@@ -6,7 +6,7 @@ import carservice.model.position.PositionDtoIn;
 import carservice.model.position.PositionDtoOut;
 import carservice.repository.PositionRepository;
 import carservice.service.admin.position.AdminPositionService;
-import carservice.service.admin.position.AdminPositionServiceImplImpl;
+import carservice.service.admin.position.AdminPositionServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ public class AdminPositionTests {
     @BeforeEach
     public void beforeEach() {
         positionRepository = mock(PositionRepository.class);
-        adminPositionServiceImpl = new AdminPositionServiceImplImpl(positionRepository);
+        adminPositionServiceImpl = new AdminPositionServiceImpl(positionRepository);
     }
 
     @Test

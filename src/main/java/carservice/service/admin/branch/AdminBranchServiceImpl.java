@@ -11,18 +11,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdminBranchServiceImplImpl extends UserBranchServiceImpl implements AdminBranchService{
+public class AdminBranchServiceImpl extends UserBranchServiceImpl implements AdminBranchService{
 
     @Autowired
-    public AdminBranchServiceImplImpl(BranchRepository branchRepository) {
+    public AdminBranchServiceImpl(BranchRepository branchRepository) {
         super(branchRepository);
     }
 
+    @Override
     public BranchDtoOut createBranch(BranchDtoIn branchDtoIn) {
         Branch branch = branchRepository.save(BranchMapping.toBranch(branchDtoIn));
         return BranchMapping.toBranchDtoOut(branch);
     }
 
+    @Override
     public BranchDtoOut updateBranch(Long id, BranchDtoIn branchDtoIn) {
         Branch branch = findBranchById(id);
         branch.setTitle(branchDtoIn.getTitle());
@@ -30,6 +32,7 @@ public class AdminBranchServiceImplImpl extends UserBranchServiceImpl implements
         return BranchMapping.toBranchDtoOut(branchRepository.save(branch));
     }
 
+    @Override
     public void deleteBranchById(Long id) {
         if(!branchRepository.existsById(id))
             throw new DataNotFound(String.format("Филиал с id = %d в базе не обнаружен", id));

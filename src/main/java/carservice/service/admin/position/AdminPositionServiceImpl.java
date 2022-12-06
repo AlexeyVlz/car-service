@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdminPositionServiceImplImpl extends UserPositionServiceImpl implements AdminPositionService {
+public class AdminPositionServiceImpl extends UserPositionServiceImpl implements AdminPositionService {
 
     @Autowired
-    public AdminPositionServiceImplImpl(PositionRepository positionRepository) {
+    public AdminPositionServiceImpl(PositionRepository positionRepository) {
         super(positionRepository);
     }
 
