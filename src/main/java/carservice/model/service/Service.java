@@ -1,4 +1,4 @@
-package carservice.model;
+package carservice.model.service;
 
 import lombok.Data;
 
@@ -19,4 +19,13 @@ public class Service {
     private String description;
     @Column(nullable = false, precision = 2)
     private Double price;
+
+    public Service(String title, String description, Double price) {
+        this.title = title;
+        this.description = description;
+        this.price = price;
+    }
+
+    public Service() {
+    }
 }

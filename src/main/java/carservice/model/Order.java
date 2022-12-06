@@ -1,6 +1,7 @@
 package carservice.model;
 
 import carservice.model.employee.Employee;
+import carservice.model.service.Service;
 import lombok.Data;
 
 import javax.persistence.*;
