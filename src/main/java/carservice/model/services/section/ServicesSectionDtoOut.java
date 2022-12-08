@@ -1,4 +1,4 @@
-package carservice.model.service;
+package carservice.model.services.section;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
