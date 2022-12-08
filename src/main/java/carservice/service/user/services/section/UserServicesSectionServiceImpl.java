@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Qualifier("UserServicesSectionServiceImpl")
 public class UserServicesSectionServiceImpl implements UserServicesSectionService{
 
-    private final ServicesSectionRepository servicesSectionRepository;
+    protected final ServicesSectionRepository servicesSectionRepository;
 
     @Autowired
     public UserServicesSectionServiceImpl(ServicesSectionRepository servicesSectionRepository) {
