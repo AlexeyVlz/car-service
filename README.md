@@ -22,7 +22,7 @@
 - автомобили (cars)
 - заказы (orders)
 
-  ![Alt-описание изображения](/order_services.png)
+  ![схема БД](/order_services.png)
 
 
 2) Раздел филиалы (Branch) - CRUD;
