@@ -24,7 +24,6 @@
 
   ![схема БД](/order_services.png)
 
-
 2) Раздел филиалы (Branch) - CRUD;
 
 3) Раздел должности (Position) - CRUD;

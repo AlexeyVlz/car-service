@@ -1,6 +1,8 @@
 package carservice.model;
 
+
 import carservice.model.autopartsection.AutoPartsSection;
+
 import lombok.Data;
 
 import javax.persistence.*;
