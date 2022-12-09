@@ -1,4 +1,4 @@
-package carservice.model;
+package carservice.model.autopartsection;
 
 import lombok.Data;
 
@@ -15,4 +15,11 @@ public class AutoPartsSection {
     private Long id;
     @Column(length = 150, unique = true)
     private String title;
+
+    public AutoPartsSection(String title) {
+        this.title = title;
+    }
+
+    public AutoPartsSection() {
+    }
 }
