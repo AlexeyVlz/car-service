@@ -2,6 +2,7 @@ package carservice.model.employee;
 
 import carservice.model.branch.Branch;
 import carservice.model.position.Position;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "employees")
+@AllArgsConstructor
 public class Employee {
 
     @Id
