@@ -1,5 +1,6 @@
 package carservice.model.services.section;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "services")
+@AllArgsConstructor
 public class ServicesSection {
 
     @Id
