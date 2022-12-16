@@ -1,6 +1,5 @@
 package carservice.service.user.services.section;
 
-import carservice.exeption.ConflictDataException;
 import carservice.exeption.DataNotFound;
 import carservice.model.services.section.ServicesSection;
 import carservice.model.services.section.ServicesSectionDtoIn;
@@ -25,8 +24,6 @@ public class UserServicesSectionServiceImpl implements UserServicesSectionServic
 
     @Override
     public ServicesSectionDtoOut addNewServicesSection(ServicesSectionDtoIn servicesSectionDtoIn) {
-        if(servicesSectionRepository.isExsist(servicesSectionDtoIn.getTitle())) throw new ConflictDataException(
-                String.format("Услуга с названием %s уже есть в базе", servicesSectionDtoIn.getTitle()));
         ServicesSection servicesSection = servicesSectionRepository
                 .save(ServicesSectionMapping.toServicesSection(servicesSectionDtoIn));
         return ServicesSectionMapping.toServicesSectionDtoOut(servicesSection);

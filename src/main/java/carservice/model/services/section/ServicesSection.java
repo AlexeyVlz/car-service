@@ -15,7 +15,7 @@ public class ServicesSection {
     @Column(name = "service_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 150, nullable = false, unique = true)
+    @Column(length = 150, nullable = false)
     private String title;
     @Column(length = 2000)
     private String description;
