@@ -1,5 +1,6 @@
 package carservice.service.admin.employee;
 
+import carservice.exeption.DataNotFound;
 import carservice.model.branch.Branch;
 import carservice.model.employee.Employee;
 import carservice.model.employee.EmployeeDtoIn;
@@ -46,18 +47,20 @@ public class AdminEmployeeServiceImpl extends UserEmployeeServiceImpl implements
         Employee employee = findEmployeeById(employeeId);
         if (branchId != null) employee.setBranch(userBranchService.findBranchById(branchId));
         if (positionId != null) employee.setPosition(userPositionService.findPositionById(positionId));
-        employee.setName(employeeDtoIn.getName());
-        employee.setSurname(employeeDtoIn.getSurname());
+        if (employeeDtoIn.getName() != null) employee.setName(employeeDtoIn.getName());
+        if (employeeDtoIn.getSurname() != null) employee.setSurname(employeeDtoIn.getSurname());
         return EmployeeMapping.toEmployeeDtoOut(employeeRepository.save(employee));
     }
 
     @Override
     public void deleteEmployeeById(Long id) {
         if (employeeRepository.existsById(id)) employeeRepository.deleteById(id);
+        else throw new DataNotFound(String.format("Сотрудник с id = %d в базе не обнаружена", id));
     }
 
     @Override
     public List<EmployeeDtoOut> getEmployeesByPosition(Long id) {
+        userPositionService.findPositionById(id);
         List<Employee> employeeList = employeeRepository.findByPositionId(id);
         return employeeList.stream().map(EmployeeMapping::toEmployeeDtoOut).collect(Collectors.toList());
     }
