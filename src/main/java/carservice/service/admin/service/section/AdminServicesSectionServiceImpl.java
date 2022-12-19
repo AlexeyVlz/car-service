@@ -8,9 +8,11 @@ import carservice.model.services.section.ServicesSectionMapping;
 import carservice.repository.ServicesSectionRepository;
 import carservice.service.user.services.section.UserServicesSectionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
+@Qualifier("AdminServicesSectionServiceImpl")
 public class AdminServicesSectionServiceImpl extends UserServicesSectionServiceImpl
         implements AdminServicesSectionService {
 
