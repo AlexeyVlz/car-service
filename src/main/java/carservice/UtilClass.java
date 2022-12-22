@@ -12,4 +12,7 @@ public class UtilClass {
             throw new IllegalArgumentException("Некорректный фортмат даты рождения");
         }
     }
+    public static String dateToString(LocalDate date) {
+            return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+    }
 }

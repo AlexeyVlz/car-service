@@ -2,6 +2,7 @@ package carservice;
 
 import carservice.model.*;
 import carservice.model.branch.Branch;
+import carservice.model.client.Client;
 import carservice.model.position.Position;
 
 import java.util.List;
