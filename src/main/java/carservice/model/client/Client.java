@@ -1,4 +1,4 @@
-package carservice.model;
+package carservice.model.client;
 
 import lombok.Data;
 

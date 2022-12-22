@@ -5,6 +5,7 @@ import carservice.model.services.section.ServicesSectionDtoOut;
 import carservice.service.user.services.section.UserServicesSectionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class UserServicesSectionController {
     private final UserServicesSectionService service;
 
     @Autowired
-    public UserServicesSectionController(UserServicesSectionService service) {
+    public UserServicesSectionController(@Qualifier("UserServicesSectionServiceImpl") UserServicesSectionService service) {
         this.service = service;
     }
 

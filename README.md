@@ -33,3 +33,4 @@
 4) Раздел сотрудники (Employee) - CRUD;
 
 5) Раздел услуги (ServicesSection) - CRUD;
+6) Раздел клиенты (Client) - CRUD

@@ -1,5 +1,6 @@
 package carservice.model.services.section;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -7,6 +8,7 @@ import javax.validation.constraints.NotNull;
 
 
 @Data
+@AllArgsConstructor
 public class ServicesSectionDtoIn {
 
     @NotNull @NotBlank

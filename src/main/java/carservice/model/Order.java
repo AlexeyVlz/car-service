@@ -1,5 +1,6 @@
 package carservice.model;
 
+import carservice.model.client.Client;
 import carservice.model.employee.Employee;
 import carservice.model.services.section.ServicesSection;
 import lombok.Data;
