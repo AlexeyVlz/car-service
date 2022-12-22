@@ -14,4 +14,10 @@ public class ClientDtoIn {
     private String surname;
     @NotBlank @NotBlank
     private String dateOfBirth;
+
+    public ClientDtoIn(String name, String surname, String dateOfBirth) {
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBirth = dateOfBirth;
+    }
 }

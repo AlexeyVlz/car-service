@@ -1,6 +1,9 @@
 package carservice.model.client;
 
 
+import lombok.Data;
+
+@Data
 public class ClientDtoOut {
 
     private final String name;
